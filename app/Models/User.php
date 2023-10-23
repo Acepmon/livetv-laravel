@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Enums\UserRole;
+use App\Enums\UserStatus;
+use App\Enums\CreatorLevel;
 
 class User extends Authenticatable
 {
@@ -42,15 +45,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'role' => UserRole::class,
+        'status' => UserStatus::class,
+        'creator_level' => CreatorLevel::class,
     ];
 
     public function isAdmin()
     {
-        return $this->role === 'admin';
+        return $this->role === UserRole::ADMIN;
     }
 
     public function isCreator()
     {
-        return $this->role === 'creator';
+        return $this->role === UserRole::CREATOR;
     }
 }

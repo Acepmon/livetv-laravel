@@ -13,6 +13,10 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Database\Eloquent\Model;
+use App\Enums\UserRole;
+use App\Enums\UserStatus;
+use App\Enums\CreatorLevel;
+use Filament\Forms\Get;
 
 class UserResource extends Resource
 {
@@ -24,15 +28,26 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required()->minLength(3)->maxLength(100),
-                Forms\Components\TextInput::make('email')->required()->email(),
-                Forms\Components\Select::make('role')
-                    ->options([
-                        'user' => 'User',
-                        'creator' => 'Creator',
-                        'admin' => 'Admin',
-                    ])->default('user'),
-                Forms\Components\TextInput::make('password')->required()->password()->autocomplete(false),
+                Forms\Components\Fieldset::make('Basic Info')
+                    ->schema([
+                        Forms\Components\TextInput::make('name')->required()->minLength(3)->maxLength(100),
+                        Forms\Components\TextInput::make('email')->required()->email(),
+                        Forms\Components\Select::make('role')->required()
+                            ->options(UserRole::class)->default(UserRole::USER),
+                        Forms\Components\Select::make('status')->required()
+                            ->options(UserStatus::class)->default(UserStatus::ACTIVE),
+                    ]),
+
+                Forms\Components\Fieldset::make('Creator Info')
+                    ->schema([
+                        Forms\Components\Select::make('creator_level')->required()->options(CreatorLevel::class)->default(CreatorLevel::GENERAL),
+                        Forms\Components\TextInput::make('channel_url'),
+                    ]),
+
+                Forms\Components\Fieldset::make('Password & Security')
+                    ->schema([
+                        Forms\Components\TextInput::make('password')->required()->password()->autocomplete(false),
+                    ]),
             ]);
     }
 
@@ -48,6 +63,8 @@ class UserResource extends Resource
             ])
             ->filters([
                 Tables\Filters\Filter::make('verified')->query(fn (Builder $query): Builder => $query->whereNotNull('email_verified_at')),
+                Tables\Filters\SelectFilter::make('role')
+                    ->options(UserRole::class),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

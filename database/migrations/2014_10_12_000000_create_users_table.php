@@ -3,6 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Enums\UserRole;
+use App\Enums\UserStatus;
+use App\Enums\CreatorLevel;
 
 return new class extends Migration
 {
@@ -17,7 +20,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role',['admin','creator','user'])->default('user');
+            $table->enum('role', UserRole::getKeys());
+            $table->enum('status', UserStatus::getKeys());
+            $table->enum('creator_level', CreatorLevel::getKeys());
+            $table->string('channel_url')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
