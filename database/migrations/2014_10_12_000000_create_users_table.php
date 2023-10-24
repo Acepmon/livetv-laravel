@@ -24,9 +24,9 @@ return new class extends Migration
             $table->enum('status', UserStatus::getKeys());
             $table->enum('creator_level', CreatorLevel::getKeys());
             $table->string('avatar_url')->nullable();
-            $table->string('channel_url')->unique()->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

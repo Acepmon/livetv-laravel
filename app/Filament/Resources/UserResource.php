@@ -17,6 +17,7 @@ use App\Enums\UserRole;
 use App\Enums\UserStatus;
 use App\Enums\CreatorLevel;
 use Filament\Forms\Get;
+use App\Filament\Resources\UserResource\Pages\CreateUser;
 
 class UserResource extends Resource
 {
@@ -51,6 +52,9 @@ class UserResource extends Resource
                             ->options(UserRole::class)->default(UserRole::USER),
                         Forms\Components\Select::make('status')->required()
                             ->options(UserStatus::class)->default(UserStatus::ACTIVE),
+                        Forms\Components\TextInput::make('password')->required(fn ($livewire) => $livewire instanceof CreateUser)
+                            ->password()
+                            ->dehydrated(fn ($state) => filled($state)),
                     ]),
 
                 Forms\Components\Section::make('Creator Info')
@@ -61,9 +65,6 @@ class UserResource extends Resource
                             ->required()
                             ->options(CreatorLevel::class)
                             ->default(CreatorLevel::GENERAL),
-
-                        Forms\Components\TextInput::make('channel_url')
-                            ->unique(),
                     ]),
             ]);
     }
@@ -86,11 +87,23 @@ class UserResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\ForceDeleteAction::make(),
+                Tables\Actions\RestoreAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\ForceDeleteBulkAction::make(),
+                    Tables\Actions\RestoreBulkAction::make(),
                 ]),
+            ]);
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->withoutGlobalScopes([
+                SoftDeletingScope::class,
             ]);
     }
     
