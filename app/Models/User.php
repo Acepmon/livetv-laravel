@@ -10,8 +10,13 @@ use Laravel\Sanctum\HasApiTokens;
 use App\Enums\UserRole;
 use App\Enums\UserStatus;
 use App\Enums\CreatorLevel;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasAvatar;
+use Filament\Models\Contracts\HasName;
+use Filament\Panel;
+use Illuminate\Support\Facades\Storage;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -58,5 +63,20 @@ class User extends Authenticatable
     public function isCreator()
     {
         return $this->role === UserRole::CREATOR;
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return $this->role == UserRole::ADMIN;
+    }
+
+    public function getFilamentAvatarUrl(): ?string
+    {
+        return Storage::url($this->avatar_url);
+    }
+
+    public function getFilamentName(): string
+    {
+        return $this->name;
     }
 }

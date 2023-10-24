@@ -28,25 +28,42 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Fieldset::make('Basic Info')
+                Forms\Components\Section::make('Basic Info')
+                    ->aside()
                     ->schema([
+                        Forms\Components\FileUpload::make('avatar_url')
+                            ->label('Avatar Image')
+                            ->directory('avatars')
+                            ->image()
+                            ->imageEditor()
+                            ->imageEditorAspectRatios([
+                                '1:1',
+                            ])
+                            ->previewable(true),
                         Forms\Components\TextInput::make('name')->required()->minLength(3)->maxLength(100),
                         Forms\Components\TextInput::make('email')->required()->email(),
+                    ]),
+
+                Forms\Components\Section::make('Settings')
+                    ->aside()
+                    ->schema([
                         Forms\Components\Select::make('role')->required()
                             ->options(UserRole::class)->default(UserRole::USER),
                         Forms\Components\Select::make('status')->required()
                             ->options(UserStatus::class)->default(UserStatus::ACTIVE),
                     ]),
 
-                Forms\Components\Fieldset::make('Creator Info')
+                Forms\Components\Section::make('Creator Info')
+                    ->description('This section is only visible to users with the "Creator" role.')
+                    ->aside()
                     ->schema([
-                        Forms\Components\Select::make('creator_level')->required()->options(CreatorLevel::class)->default(CreatorLevel::GENERAL),
-                        Forms\Components\TextInput::make('channel_url'),
-                    ]),
+                        Forms\Components\Select::make('creator_level')
+                            ->required()
+                            ->options(CreatorLevel::class)
+                            ->default(CreatorLevel::GENERAL),
 
-                Forms\Components\Fieldset::make('Password & Security')
-                    ->schema([
-                        Forms\Components\TextInput::make('password')->required()->password()->autocomplete(false),
+                        Forms\Components\TextInput::make('channel_url')
+                            ->unique(),
                     ]),
             ]);
     }
@@ -55,6 +72,7 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('avatar_url')->label('Avatar')->circular(),
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('email'),
                 Tables\Columns\TextColumn::make('role'),
