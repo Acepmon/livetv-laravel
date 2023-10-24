@@ -23,6 +23,9 @@ return new class extends Migration
             $table->enum('visibility', ChannelVisibility::getKeys())->default(ChannelVisibility::HIDDEN);
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->index(['visibility']);
         });
     }
 

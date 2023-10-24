@@ -85,4 +85,19 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
     {
         return $this->hasMany(Channel::class);
     }
+
+    public function liveContents()
+    {
+        return $this->hasMany(LiveContent::class);
+    }
+
+    public function vodContents()
+    {
+        return $this->hasMany(VodContent::class);
+    }
+
+    public function shortContents()
+    {
+        return $this->hasMany(ShortContent::class);
+    }
 }

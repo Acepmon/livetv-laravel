@@ -19,6 +19,8 @@ class ChannelResource extends Resource
     protected static ?string $model = Channel::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Member';
+    protected static ?string $navigationLabel = 'Channels';
 
     public static function form(Form $form): Form
     {
@@ -38,9 +40,21 @@ class ChannelResource extends Resource
                 Forms\Components\Section::make('Channel Info')
                     ->aside()
                     ->schema([
-                        Forms\Components\TextInput::make('name')->label('Channel Name')->required()->minLength(3)->maxLength(255),
-                        Forms\Components\TextInput::make('slug')->label('Unique Slug')->required()->minLength(3)->maxLength(100)->unique(ignoreRecord: true),
-                        Forms\Components\Textarea::make('desc')->label('Channel Description'),
+                        Forms\Components\TextInput::make('name')
+                            ->label('Channel Name')
+                            ->required()
+                            ->minLength(3)
+                            ->maxLength(255),
+
+                        Forms\Components\TextInput::make('slug')
+                            ->label('Unique Slug')
+                            ->required()
+                            ->minLength(3)
+                            ->maxLength(100)
+                            ->unique(ignoreRecord: true),
+
+                        Forms\Components\Textarea::make('desc')
+                            ->label('Channel Description'),
                     ]),
 
                 Forms\Components\Section::make('Media')
