@@ -1,10 +1,29 @@
-import preset from './vendor/filament/support/tailwind.config.preset'
+const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 
-export default {
-    presets: [preset],
+module.exports = {
+    darkMode: 'class',
+    theme: {
+        extend: {
+            fontFamily: {
+                sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+            },
+            colors: {
+                primary: colors.amber,
+            }
+        },
+    },
+    variants: {
+        extend: {
+            backgroundColor: ['active'],
+        }
+    },
     content: [
-        './app/Filament/**/*.php',
-        './resources/views/**/*.blade.php',
-        './vendor/filament/**/*.blade.php',
+        './app/**/*.php',
+        "./resources/**/*.{php,html,js,jsx,ts,tsx,vue,twig}",
+    ],
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/typography'),
     ],
 }
