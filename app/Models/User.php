@@ -56,6 +56,15 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
         'creator_level' => CreatorLevel::class,
     ];
 
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'avatar_url' => '/assets/images/default-avatar.svg',
+    ];
+
     public function isAdmin()
     {
         return $this->role === UserRole::ADMIN;
@@ -73,6 +82,10 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
 
     public function getFilamentAvatarUrl(): ?string
     {
+        if (empty($this->avatar_url)) {
+            return '/assets/images/default-avatar.svg';
+        }
+
         return Storage::url($this->avatar_url);
     }
 

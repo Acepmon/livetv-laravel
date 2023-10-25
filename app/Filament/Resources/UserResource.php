@@ -75,7 +75,7 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('avatar_url')->label('Avatar')->circular(),
+                Tables\Columns\ImageColumn::make('avatar_url')->label('Avatar')->circular()->defaultImageUrl(url('/assets/images/default-avatar.svg')),
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('email'),
                 Tables\Columns\TextColumn::make('role'),
