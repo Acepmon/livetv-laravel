@@ -19,7 +19,7 @@
 
 @php
     $typeClasses = match ($type) {
-        'primary' => 'bg-gray-800 dark:bg-gray-100 text-white dark:text-gray-700 hover:bg-gray-900 dark:focus:ring-offset-gray-900 dark:focus:ring-gray-100 dark:hover:bg-white dark:hover:text-gray-800 focus:ring-2 focus:ring-gray-900 focus:ring-offset-2',
+        'primary' => 'bg-primary-600 dark:bg-primary-600 text-white dark:text-white hover:bg-primary-500 dark:focus:ring-offset-primary-900 dark:focus:ring-primary-100 dark:hover:bg-primary-500 focus:ring-2 focus:ring-primary-900 focus:ring-offset-2',
         'secondary' => 'bg-white border text-gray-500 hover:text-gray-700 border-gray-200/70 dark:focus:ring-offset-gray-900 dark:border-gray-400/10 hover:bg-gray-50 active:bg-white dark:focus:ring-gray-700 focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200/60 dark:bg-gray-800/50 dark:hover:bg-gray-800/70 dark:text-gray-400 focus:shadow-outline',
         'success' => 'bg-green-600 text-white hover:bg-green-600/90 focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900 focus:bg-green-700/90 focus:ring-green-700',
         'info' => 'bg-blue-600 text-white hover:bg-blue-600/90 focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900 focus:bg-blue-700/90 focus:ring-blue-700',

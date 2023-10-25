@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use App\Enums\UserRole;
 
 class RedirectToDashboard
 {
@@ -17,7 +18,13 @@ class RedirectToDashboard
     public function handle(Request $request, Closure $next): Response
     {
         if (! Auth::guest()) {
-            return redirect()->route('dashboard');
+            if (Auth::user()->role == UserRole::ADMIN) {
+                return redirect()->route('filament.admin.pages.dashboard');
+            } else if (Auth::user()->role == UserRole::CREATOR) {
+                return redirect()->route('filament.studio.pages.dashboard');
+            } else {
+                return redirect()->route('dashboard');
+            }
         }
 
         return $next($request);
