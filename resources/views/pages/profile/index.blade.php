@@ -3,7 +3,7 @@
 use function Laravel\Folio\{middleware, name};
 //use function Livewire\Volt\{state};
 
-name('dashboard');
+name('profile');
 middleware(['auth', 'verified']);
 
 ?>
@@ -11,11 +11,11 @@ middleware(['auth', 'verified']);
 <x-layouts.app>
     <x-slot name="header">
         <h2 class="text-lg font-semibold leading-tight text-gray-800 dark:text-gray-200">
-            {{ __('Dashboard') }}
+            {{ __('Profile') }}
         </h2>
     </x-slot>
 
-    @volt('dashboard')
+    @volt('profile')
         <div class="h-full py-12">
             <div class="h-full mx-auto max-w-7xl sm:px-6 lg:px-8">
                 

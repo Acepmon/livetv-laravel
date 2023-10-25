@@ -119,9 +119,9 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, HasName
         if ($this->role == UserRole::ADMIN) {
             return 'filament.admin.pages.dashboard';
         } else if ($this->role == UserRole::CREATOR) {
-            return 'filament.studio.pages.dashboard';
+            return 'studio';
         } else {
-            return 'dashboard';
+            return 'profile';
         }
     }
 }

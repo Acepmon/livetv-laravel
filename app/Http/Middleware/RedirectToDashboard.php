@@ -18,13 +18,7 @@ class RedirectToDashboard
     public function handle(Request $request, Closure $next): Response
     {
         if (! Auth::guest()) {
-            if (Auth::user()->role == UserRole::ADMIN) {
-                return redirect()->route('filament.admin.pages.dashboard');
-            } else if (Auth::user()->role == UserRole::CREATOR) {
-                return redirect()->route('filament.studio.pages.dashboard');
-            } else {
-                return redirect()->route('dashboard');
-            }
+            return redirect()->route(Auth::user()->getRoleHomeRoute());
         }
 
         return $next($request);

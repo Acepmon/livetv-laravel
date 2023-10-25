@@ -62,6 +62,13 @@ $updatePassword = function(){
     $this->reset(['current_password', 'new_password', 'new_password_confirmation']);
 };
 
+$logout = function() {
+    Auth::logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+    return Redirect::to('/');
+};
+
 /**
     * Delete the user's account.
     */
@@ -142,6 +149,30 @@ $destroy = function(Request $request)
                     </div>
                 </section>
                 {{-- End Update Password Section --}}
+
+                <div class="p-4 bg-white shadow sm:p-8 dark:bg-gray-800 sm:rounded-lg dark:bg-gray-900/50 dark:border dark:border-gray-200/10">
+                    <div class="max-w-xl">
+
+                        <section class="space-y-6">
+                            <header>
+                                <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">{{ __('Sign out') }}</h2>
+                                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">{{ __('Sign out from this device session') }}</p>
+                            </header>
+
+                            <form wire:submit="logout" class="mt-6 space-y-6">
+                                <div class="flex items-start justify-start w-auto text-left">
+                                    <div>
+                                        <x-ui.button type="secondary" submit="true">
+                                            {{ __('Sign out') }}
+                                        </x-ui.button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </section>
+
+                    </div>
+                </div>
 
                 <div class="p-4 bg-white shadow sm:p-8 dark:bg-gray-800 sm:rounded-lg dark:bg-gray-900/50 dark:border dark:border-gray-200/10">
                     <div class="max-w-xl">
