@@ -46,8 +46,8 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('channel_id')->references('id')->on('channels');
+            // $table->foreign('user_id')->references('id')->on('users');
+            // $table->foreign('channel_id')->references('id')->on('channels');
 
             $table->index(['status', 'visibility', 'age_limit']);
         });
