@@ -18,6 +18,9 @@ module.exports = {
             backgroundColor: ['active'],
         }
     },
+    corePlugins: {
+        aspectRatio: false,
+    },
     content: [
         './app/**/*.php',
         "./resources/**/*.{php,html,js,jsx,ts,tsx,vue,twig}",
@@ -25,5 +28,6 @@ module.exports = {
     plugins: [
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
+        require('@tailwindcss/aspect-ratio'),
     ],
 }
