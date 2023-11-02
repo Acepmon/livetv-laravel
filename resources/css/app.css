@@ -5,3 +5,20 @@
 [x-cloak] {
     display: none;
 }
+
+swiper-container::part(button-prev),
+swiper-container::part(button-next) {
+    color: #1e293b;
+    width: 2rem;
+    height: 2rem;
+}
+swiper-container::part(button-prev):hover,
+swiper-container::part(button-next):hover {
+    color: #64748b;
+}
+swiper-container::part(button-prev) {
+    left: 0;
+}
+swiper-container::part(button-next) {
+    right: 0;
+}

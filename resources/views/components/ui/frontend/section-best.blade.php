@@ -1,7 +1,7 @@
-<div class="mx-auto w-full max-w-lg sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl 2xl:max-w-screen-2xl">
-  <swiper-container slides-per-view="3" autoplay="true" speed="500" loop="true" effect="coverflow">
+<div class="mx-auto w-full max-w-lg sm:max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl">
+  <swiper-container slides-per-view="3" autoplay="true" speed="500" loop="true" effect="coverflow" navigation="true">
     <swiper-slide>
-      <div class="group aspect-w-16 aspect-h-9 overflow-hidden rounded-lg relative">
+      <div class="group aspect-w-16 aspect-h-10 overflow-hidden rounded-lg relative">
         <img src="https://image.ucc.co.kr/thumbnail/2023/08/07/1691398164_8693.jpg" alt="Cover Image" class="object-cover object-center transition-opacity group-hover:opacity-75">
         <div aria-hidden="true" class="bg-gradient-to-b from-transparent to-black opacity-50"></div>
         <div class="flex items-end p-6">
@@ -22,7 +22,7 @@
       </div>
     </swiper-slide>
     <swiper-slide>
-      <div class="group aspect-w-16 aspect-h-9 overflow-hidden rounded-lg relative">
+      <div class="group aspect-w-16 aspect-h-10 overflow-hidden rounded-lg relative">
         <img src="https://image.ucc.co.kr/thumbnail/2023/07/14/1689303561_7780.jpg" alt="Cover Image" class="object-cover object-center transition-opacity group-hover:opacity-75">
         <div aria-hidden="true" class="bg-gradient-to-b from-transparent to-black opacity-50 sm:absolute sm:inset-0"></div>
         <div class="flex items-end p-6 sm:absolute sm:inset-0">
@@ -43,7 +43,7 @@
       </div>
     </swiper-slide>
     <swiper-slide>
-      <div class="group aspect-w-16 aspect-h-9 overflow-hidden rounded-lg relative">
+      <div class="group aspect-w-16 aspect-h-10 overflow-hidden rounded-lg relative">
         <img src="https://image.ucc.co.kr/thumbnail/2023/07/10/1688974027_1823.jpg" alt="Cover Image" class="object-cover object-center transition-opacity group-hover:opacity-75">
         <div aria-hidden="true" class="bg-gradient-to-b from-transparent to-black opacity-50 sm:absolute sm:inset-0"></div>
         <div class="flex items-end p-6 sm:absolute sm:inset-0">
@@ -64,7 +64,7 @@
       </div>
     </swiper-slide>
     <swiper-slide>
-      <div class="group aspect-w-16 aspect-h-9 overflow-hidden rounded-lg relative">
+      <div class="group aspect-w-16 aspect-h-10 overflow-hidden rounded-lg relative">
         <img src="https://image.ucc.co.kr/thumbnail/2023/09/21/1695276685_9589.jpg" alt="Cover Image" class="object-cover object-center transition-opacity group-hover:opacity-75">
         <div aria-hidden="true" class="bg-gradient-to-b from-transparent to-black opacity-50"></div>
         <div class="flex items-end p-6">

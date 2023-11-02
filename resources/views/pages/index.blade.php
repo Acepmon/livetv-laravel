@@ -11,9 +11,10 @@ name('home');
 <x-layouts.home>
 
     @volt('home')
-        <div class="relative flex flex-col items-center justify-center w-full h-auto overflow-hidden" x-cloak>
+        <div class="relative flex flex-col gap-2 sm:gap-6 lg:gap-8 items-center justify-center w-full h-auto overflow-hidden" x-cloak>
 
             <x-ui.frontend.section-best />
+            <x-ui.frontend.section-promo />
 
         </div>
     @endvolt

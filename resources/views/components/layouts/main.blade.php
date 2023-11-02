@@ -14,8 +14,8 @@
         </script>
 
 
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <title>{{ $title ?? 'Genesis' }}</title>
     </head>
