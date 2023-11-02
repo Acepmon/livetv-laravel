@@ -32,7 +32,7 @@
                 <x-ui.logo class="w-auto h-10 mx-auto text-gray-700 fill-current dark:text-gray-100" />
             </x-ui.link>
 
-            <h2 class="mt-6 text-2xl font-extrabold leading-9 text-center text-gray-700 dark:text-gray-200">
+            <h2 class="mt-6 text-2xl font-semibold leading-9 text-center text-gray-700 dark:text-gray-200">
                 Verify your email address
             </h2>
 
