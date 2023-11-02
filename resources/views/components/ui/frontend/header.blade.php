@@ -8,7 +8,7 @@
   $currentRoute = Route::getCurrentRoute();
 @endphp
 
-<nav class="bg-white shadow">
+<nav class="z-20 bg-white shadow">
   <div class="mx-auto px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 justify-between">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -37,7 +37,7 @@
 
       <div class="flex flex-shrink-0 items-center ml-12 sm:ml-0">
         <a href="{{ route('home') }}" class="flex items-center shrink-0">
-          <x-ui.logo class="block w-auto text-gray-800 fill-current h-7 dark:text-gray-200" />
+          <x-ui.logo class="block w-auto text-gray-800 fill-current h-8 dark:text-gray-200" />
         </a>
       </div>
       <div class="flex flex-1 items-center justify-center sm:items-stretch">

@@ -2,6 +2,8 @@
 
     <x-ui.frontend.header />
 
-    {{ $slot }}
+    <main class="z-0">
+        {{ $slot }}
+    </main>
 
 </x-layouts.main>
