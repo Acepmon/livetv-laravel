@@ -8,7 +8,7 @@ name('home');
 
 ?>
 
-<x-layouts.frontend>
+<x-layouts.home>
 
     @volt('home')
         <div class="relative flex flex-col items-center justify-center w-full h-auto overflow-hidden" x-cloak>
@@ -33,4 +33,4 @@ name('home');
         </div>
     @endvolt
 
-</x-layouts.frontend>
+</x-layouts.home>
