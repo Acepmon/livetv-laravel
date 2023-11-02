@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c57cac8c24ac2b0971e7b1db6341dc7e",
+    "content-hash": "27dc1c09a4b0d900c1c9f4b2b2376bdd",
     "packages": [
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -1105,6 +1105,49 @@
                 }
             ],
             "time": "2023-10-06T06:47:41+00:00"
+        },
+        {
+            "name": "faicchia/boring-avatars",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/faicchia/boring-avatars.git",
+                "reference": "e7772a70049842fc6d4b5c9e18e982379ef7b27a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/faicchia/boring-avatars/zipball/e7772a70049842fc6d4b5c9e18e982379ef7b27a",
+                "reference": "e7772a70049842fc6d4b5c9e18e982379ef7b27a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "pestphp/pest": "^1.22"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Faicchia\\BoringAvatars\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Davide Pio Faicchia",
+                    "email": "da.faicchia@gmail.com"
+                }
+            ],
+            "description": "Generate boring avatars in PHP",
+            "support": {
+                "issues": "https://github.com/faicchia/boring-avatars/issues",
+                "source": "https://github.com/faicchia/boring-avatars/tree/1.0.0"
+            },
+            "time": "2022-12-04T21:06:19+00:00"
         },
         {
             "name": "filament/actions",

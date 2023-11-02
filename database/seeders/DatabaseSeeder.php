@@ -35,5 +35,25 @@ class DatabaseSeeder extends Seeder
             'name' => 'User 3',
             'email' => 'user3@gmail.com',
         ]);
+        \App\Models\User::factory()->user()->create([
+            'name' => 'User 4',
+            'email' => 'user4@gmail.com',
+        ]);
+        \App\Models\User::factory()->user()->create([
+            'name' => 'User 5',
+            'email' => 'user5@gmail.com',
+        ]);
+        \App\Models\User::factory()->user()->create([
+            'name' => 'User 6',
+            'email' => 'user6@gmail.com',
+        ]);
+        \App\Models\User::factory()->user()->create([
+            'name' => 'User 7',
+            'email' => 'user7@gmail.com',
+        ]);
+        \App\Models\User::factory()->user()->create([
+            'name' => 'User 8',
+            'email' => 'user8@gmail.com',
+        ]);
     }
 }

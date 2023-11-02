@@ -6,7 +6,11 @@ use function Laravel\Folio\{middleware, name};
 use function Livewire\Volt\{state, rules};
 
 middleware(['guest']);
-state(['email' => '', 'password' => '', 'remember' => false]);
+if (env('APP_ENV') === 'local') {
+    state(['email' => 'admin@gmail.com', 'password' => 'password', 'remember' => false]);
+} else {
+    state(['email' => '', 'password' => '', 'remember' => false]);
+}
 rules(['email' => 'required|email', 'password' => 'required']);
 name('login');
 

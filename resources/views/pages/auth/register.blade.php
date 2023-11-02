@@ -4,6 +4,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
+use Faicchia\BoringAvatars\BoringAvatar;
 
 use function Laravel\Folio\{middleware, name};
 use function Livewire\Volt\{state, rules};
@@ -16,9 +17,17 @@ name('register');
 $register = function(){
     $this->validate();
 
+    $avatar = BoringAvatar::make()
+        ->size(60)
+        ->variant('beam')
+        ->name($this->name)
+        ->colors(['#f97316', '#FFB238', '#FFE7BF'])
+        ->url();
+
     $user = User::create([
         'email' => $this->email,
         'name' => $this->name,
+        'avatar_url' => $avatar,
         'password' => Hash::make($this->password),
     ]);
 
