@@ -16,6 +16,7 @@ name('home');
             <x-ui.frontend.section-best />
             <x-ui.frontend.section-promo />
             <x-ui.frontend.section-best-live />
+            <x-ui.frontend.section-best-vod />
 
         </div>
     @endvolt
