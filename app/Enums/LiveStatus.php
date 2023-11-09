@@ -7,8 +7,8 @@ use Filament\Support\Contracts\HasLabel;
 enum LiveStatus: string implements HasLabel
 {
     case STANDBY = 'standby';
-    case STARTED = 'creator';
-    case ENDED = 'user';
+    case STARTED = 'started';
+    case ENDED = 'ended';
 
     public function getLabel(): ?string
     {
