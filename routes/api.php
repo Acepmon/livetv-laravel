@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResource('users', App\Http\Controllers\API\UserController::class);
+Route::apiResource('channels', App\Http\Controllers\API\ChannelController::class);
+Route::apiResource('lives', App\Http\Controllers\API\LiveController::class);
+Route::apiResource('vods', App\Http\Controllers\API\VodController::class);
+Route::apiResource('shorts', App\Http\Controllers\API\ShortController::class);
