@@ -7,7 +7,7 @@
     </a>
   </div>
 
-  <div class="mt-6 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-0 lg:gap-x-8">
+  <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-1 gap-y-10 sm:gap-x-2 lg:gap-x-4 md:gap-y-0">
     <div class="group relative">
       <div class="relative">
         <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 relative">

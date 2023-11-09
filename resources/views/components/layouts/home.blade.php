@@ -1,12 +1,10 @@
 <x-layouts.frontend>
-
-    <div class="flex flex-row mt-2 sm:mt-6 lg:mt-8 gap-2 sm:gap-6">
-        <div class="flex w-40 sm:w-48 pl-2 sm:pl-6">
-            <x-ui.frontend.home-nav />
-        </div>
-        <div class="flex-1 pr-2 sm:pr-6 lg:pr-0 mx-auto max-w-6xl">
-            {{ $slot }}
-        </div>
+  <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 px-0 sm:px-6 lg:px-8">
+    <div class="flex w-full sm:w-32 md:w-48 lg:w-56">
+      <x-ui.frontend.home-nav />
     </div>
-
+    <div class="flex-1 mx-auto max-w-5xl px-2 sm:px-0">
+      {{ $slot }}
+    </div>
+  </div>
 </x-layouts.frontend>
