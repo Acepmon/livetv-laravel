@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Enums\VodStatus;
 use App\Enums\ContentVisibility;
 use App\Enums\ContentAgeLimit;
+use Illuminate\Support\Str;
 
 class VodContent extends Model
 {
@@ -18,6 +19,12 @@ class VodContent extends Model
         'visibility' => ContentVisibility::class,
         'age_limit' => ContentAgeLimit::class,
     ];
+
+    public static function generateContentId()
+    {
+        // TODO: generate content id
+        return Str::random(6);
+    }
 
     public function user()
     {
